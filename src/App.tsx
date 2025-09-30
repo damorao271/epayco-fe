@@ -6,6 +6,9 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const apiUrl = import.meta.env.VITE_API_URL
+  const key = import.meta.env.VITE_KEY
+
   return (
     <>
       <div>
@@ -26,8 +29,20 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Vite and React logos to learn more {apiUrl} {key}
       </p>
+
+      <div className="bg-gray-200 p-4 rounded-md shadow-md">
+        <h2 className="text-xl font-semibold text-gray-800">
+          Tailwind Example
+        </h2>
+        <p className="text-gray-700">
+          This is a simple example using Tailwind CSS classes.
+        </p>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Click me
+        </button>
+      </div>
     </>
   )
 }
