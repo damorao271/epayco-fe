@@ -64,13 +64,13 @@ export const registerClientForm = [
   },
   {
     label: 'Documento *',
-    type: 'text',
+    type: 'number',
     name: 'document',
     placeholder: 'Ingrese su documento',
   },
   {
     label: 'Telefono *',
-    type: 'text',
+    type: 'number',
     name: 'phone',
     placeholder: 'Ingrese su teléfono',
   },

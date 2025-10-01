@@ -8,6 +8,22 @@ const clientApi = axios.create({
   },
 })
 
+// Request interceptor for API calls before requsest is made
+clientApi.interceptors.request.use(
+  async (config) => {
+    return config
+  },
+  (error) => {
+    // loadingStore.setLoading(false);
+    Promise.reject(error)
+  }
+)
+
+// Response interceptor for API calls in case the API changes
+clientApi.interceptors.response.use((response) => {
+  return response
+})
+
 export const registerClient = (data: {
   name: string
   document: string
