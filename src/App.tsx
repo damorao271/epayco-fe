@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { ACTIONS } from './utils/options'
-import { ReqisterClient, ReloadWallet, GetBalance } from './components'
+import {
+  ReqisterClient,
+  ReloadWallet,
+  GetBalance,
+  PaymentForm,
+} from './components'
 import Header from './components/header'
 import './App.css'
-
-function PaymentSection() {
-  return <div className="p-8">Payment Section</div>
-}
 
 function App() {
   const [selected, setSelected] = useState(ACTIONS.REGISTRAR_CLIENTE)
@@ -17,7 +18,7 @@ function App() {
       {selected === ACTIONS.REGISTRAR_CLIENTE && <ReqisterClient />}
       {selected === ACTIONS.RECARGAR_MONEDERO && <ReloadWallet />}
       {selected === ACTIONS.OBTENER_BALANCE && <GetBalance />}
-      {selected === ACTIONS.REALIZAR_PAGO && <PaymentSection />}
+      {selected === ACTIONS.REALIZAR_PAGO && <PaymentForm />}
     </div>
   )
 }

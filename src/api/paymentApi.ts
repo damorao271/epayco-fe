@@ -2,7 +2,12 @@
 import axios from 'axios'
 
 const URL = import.meta.env.VITE_API_URL
-console.log('URL:', URL)
+
+export interface PaymentData {
+  document: string
+  phone: string
+  amount: number
+}
 
 const paymentApi = axios.create({
   baseURL: URL || '',
@@ -11,13 +16,9 @@ const paymentApi = axios.create({
   },
 })
 
-export const startPayment = (data: {
-  document: string
-  phone: string
-  amount: number
-}) => paymentApi.post('/payment/start', data)
+export const startPayment = (data: PaymentData) => paymentApi.post('/pay', data)
 
 export const confirmPayment = (data: { sessionId: string; token: string }) =>
-  paymentApi.post('/payment/confirm', data)
+  paymentApi.post('/pay/confirm', data)
 
 export default paymentApi

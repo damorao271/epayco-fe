@@ -28,7 +28,6 @@ const GetBalance = () => {
       const response = await getBalance(data)
 
       if (['200', '201'].includes(response.data.code)) {
-        console.log('response:', response)
         reset()
         toast.success(response?.data?.message)
         setBalance(response?.data?.data?.balance || 0)
