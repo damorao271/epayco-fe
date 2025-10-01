@@ -1,6 +1,13 @@
 // src/api/clientApi.ts
 import axios from 'axios'
 
+export interface Client {
+  name: string
+  document: string
+  email: string
+  phone: string
+}
+
 const clientApi = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '',
   headers: {
@@ -24,11 +31,6 @@ clientApi.interceptors.response.use((response) => {
   return response
 })
 
-export const registerClient = (data: {
-  name: string
-  document: string
-  email: string
-  phone: string
-}) => clientApi.post('register', data)
+export const registerClient = (data: Client) => clientApi.post('register', data)
 
 export default clientApi

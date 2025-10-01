@@ -1,19 +1,19 @@
 export const paymentForm = [
   {
     label: 'Documento',
-    type: 'text',
+    type: 'number',
     name: 'document',
     placeholder: 'Ingrese su documento',
   },
   {
     label: 'Telefono',
-    type: 'text',
+    type: 'number',
     name: 'phone',
     placeholder: 'Ingrese su teléfono',
   },
   {
     label: 'Monto',
-    type: 'text',
+    type: 'number',
     name: 'amount',
     placeholder: 'Ingrese el monto',
   },
@@ -31,19 +31,19 @@ export const confirmPaymentForm = [
 export const rechargeWalletForm = [
   {
     label: 'Documento',
-    type: 'text',
+    type: 'number',
     name: 'document',
     placeholder: 'Ingrese su documento',
   },
   {
     label: 'Telefono',
-    type: 'text',
+    type: 'number',
     name: 'phone',
     placeholder: 'Ingrese su teléfono',
   },
   {
     label: 'Monto',
-    type: 'text',
+    type: 'number',
     name: 'amount',
     placeholder: 'Ingrese el monto',
   },

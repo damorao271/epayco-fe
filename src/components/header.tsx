@@ -2,7 +2,7 @@ import { optionsActions } from '../utils/options'
 import epaycoLogo from '/logo-blanco.svg'
 import './header.scss'
 
-export function Header({
+function Header({
   setSelected,
 }: {
   selected: string
@@ -22,3 +22,5 @@ export function Header({
     </div>
   )
 }
+
+export default Header

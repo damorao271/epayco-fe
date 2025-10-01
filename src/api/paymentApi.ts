@@ -1,7 +1,7 @@
 // src/api/paymentApi.ts
 import axios from 'axios'
 
-const URL = import.meta.env.VITE_PAYMENT_API_URL
+const URL = import.meta.env.VITE_API_URL
 console.log('URL:', URL)
 
 const paymentApi = axios.create({

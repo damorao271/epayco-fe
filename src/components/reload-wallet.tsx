@@ -1,36 +1,34 @@
-import { registerClientSchema } from '../schemas'
+import { rechargeWalletSchema } from '../schemas'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from './input'
-import { registerClientForm } from '../utils/forms'
-import { registerClient } from '../api/clientApi'
+import { rechargeWalletForm } from '../utils/forms'
+import { rechargeWallet } from '../api/walletApi'
 import { toast } from 'react-toastify'
 
-const ReqisterClient = () => {
+const ReloadWallet = () => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(registerClientSchema()),
+    resolver: yupResolver(rechargeWalletSchema()),
     defaultValues: {
       document: '',
-      name: '',
-      email: '',
       phone: '',
+      amount: 0,
     },
   })
 
-  const applyDiscount = handleSubmit(async (data) => {
+  const reloadWallet = handleSubmit(async (data) => {
     try {
-      const response = await registerClient(data)
-
+      const response = await rechargeWallet(data)
       if (['200', '201'].includes(response.data.code)) {
         reset()
         toast.success(response?.data?.message)
       } else {
-        toast.error(response?.data?.message || 'Error al registrar cliente')
+        toast.error(response?.data?.message || 'Error al recargar billetera')
       }
     } catch (error) {
       const errorMessages = error?.response?.data?.message
@@ -38,18 +36,17 @@ const ReqisterClient = () => {
         toast.error(errorMessages.join(', '))
       } else {
         toast.error(
-          error?.response?.data?.message || 'Error al registrar cliente'
+          error?.response?.data?.message || 'Error al recargar billetera'
         )
       }
-      return response
     }
   })
 
   return (
     <div className="bg-gray-200 p-4 mt-48 rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Registro de Cliente</h2>
+      <h2 className="text-2xl font-semibold mb-4">Recargar Billetere</h2>
 
-      {registerClientForm.map((input) => (
+      {rechargeWalletForm.map((input) => (
         <Input
           key={input.name}
           label={input.label}
@@ -60,10 +57,10 @@ const ReqisterClient = () => {
           placeholder={input.placeholder}
         />
       ))}
-      <button className="action-button" onClick={applyDiscount}>
-        Registrar Cliente
+      <button className="action-button" onClick={reloadWallet}>
+        Recargar Billetera
       </button>
     </div>
   )
 }
-export default ReqisterClient
+export default ReloadWallet

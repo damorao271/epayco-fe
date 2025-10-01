@@ -174,7 +174,7 @@ interface SelectInputProps {
   centeredLabel?: boolean
 }
 
-export const SelectInput: React.FC<SelectInputProps> = (props) => {
+const SelectInput: React.FC<SelectInputProps> = (props) => {
   const {
     onChange,
     bootstrap,
