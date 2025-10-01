@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from './input'
 import { registerClientForm } from '../utils/forms'
 import { registerClient } from '../api/clientApi'
+import { toast } from 'react-toastify'
 
 export const ReqisterClient = () => {
   const {
@@ -24,9 +25,11 @@ export const ReqisterClient = () => {
   const applyDiscount = handleSubmit(async (data) => {
     const response = await registerClient(data)
 
-    if (response.status === 201) {
+    if (['200', '201'].includes(response.data.code)) {
       reset()
-      // Paunt message from BE succes or fail
+      toast.success(response?.data?.message)
+    } else {
+      toast.error(response?.data?.message || 'Error al registrar cliente')
     }
   })
 

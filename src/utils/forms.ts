@@ -51,25 +51,25 @@ export const rechargeWalletForm = [
 
 export const registerClientForm = [
   {
-    label: 'Nombre completo',
+    label: 'Nombre completo *',
     type: 'text',
     name: 'name',
     placeholder: 'Ingrese su Nombre',
   },
   {
-    label: 'Email',
+    label: 'Email *',
     type: 'text',
     name: 'email',
     placeholder: 'Ingrese su email',
   },
   {
-    label: 'Documento',
+    label: 'Documento *',
     type: 'text',
     name: 'document',
     placeholder: 'Ingrese su documento',
   },
   {
-    label: 'Telefono',
+    label: 'Telefono *',
     type: 'text',
     name: 'phone',
     placeholder: 'Ingrese su teléfono',
