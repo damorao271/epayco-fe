@@ -13,6 +13,5 @@ export const registerClientSchema = () => {
       .string()
       .required('Obligatorio')
       .matches(phoneRegex, 'Teléfono debe tener 10 dígitos'),
-    amount: yup.string().required('Obligatorio'),
   })
 }

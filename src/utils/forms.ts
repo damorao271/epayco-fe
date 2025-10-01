@@ -74,10 +74,4 @@ export const registerClientForm = [
     name: 'phone',
     placeholder: 'Ingrese su teléfono',
   },
-  {
-    label: 'Monto',
-    type: 'text',
-    name: 'amount',
-    placeholder: 'Ingrese el monto',
-  },
 ]
