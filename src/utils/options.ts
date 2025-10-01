@@ -1,7 +1,7 @@
 export const ACTIONS = {
   REGISTRAR_CLIENTE: 'Registrar Cliente',
   RECARGAR_MONEDERO: 'Recargar Billetera',
-  OBTENER_BALANCE: 'Obtener Balance',
+  OBTENER_BALANCE: 'Obtener Saldo',
   REALIZAR_PAGO: 'Realizar Pago',
 }
 

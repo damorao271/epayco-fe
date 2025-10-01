@@ -75,3 +75,18 @@ export const registerClientForm = [
     placeholder: 'Ingrese su teléfono',
   },
 ]
+
+export const getBalanceForm = [
+  {
+    label: 'Documento',
+    type: 'number',
+    name: 'document',
+    placeholder: 'Ingrese su documento',
+  },
+  {
+    label: 'Telefono',
+    type: 'number',
+    name: 'phone',
+    placeholder: 'Ingrese su teléfono',
+  },
+]
