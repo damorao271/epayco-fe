@@ -18,8 +18,8 @@ const GetBalance = () => {
   } = useForm({
     resolver: yupResolver(getBalanceSchema()),
     defaultValues: {
-      document: '',
-      phone: '',
+      document: import.meta.env.VITE_DOCUMENT || '',
+      phone: import.meta.env.VITE_PHONE || '',
     },
   })
 

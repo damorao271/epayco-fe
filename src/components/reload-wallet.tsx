@@ -15,8 +15,8 @@ const ReloadWallet = () => {
   } = useForm({
     resolver: yupResolver(rechargeWalletSchema()),
     defaultValues: {
-      document: '',
-      phone: '',
+      document: import.meta.env.VITE_DOCUMENT || '',
+      phone: import.meta.env.VITE_PHONE || '',
       amount: 0,
     },
   })
