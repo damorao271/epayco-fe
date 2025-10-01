@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import { phoneRegex, documentRegex } from '../utils/regex'
 
-export const paySchema = () => {
+export const rechargeWalletSchema = () => {
   return yup.object().shape({
     document: yup
       .string()
@@ -11,6 +11,9 @@ export const paySchema = () => {
       .string()
       .required('Obligatorio')
       .matches(phoneRegex, 'Teléfono debe tener 10 dígitos'),
-    amount: yup.string().required('Obligatorio'),
+    amount: yup
+      .number()
+      .required('Obligatorio')
+      .positive('El monto debe ser mayor a 0'),
   })
 }

@@ -2,8 +2,9 @@ import epaycoLogo from '/logo-blanco.svg'
 import './App.css'
 import { Input } from './components/input'
 import { useForm } from 'react-hook-form'
-import { paySchema } from './schemas/pay.schema'
+import { paySchema } from './schemas'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { paymentForm } from './utils/forms'
 
 function App() {
   // Read from environment variables
@@ -33,14 +34,16 @@ function App() {
       </div>
 
       <div className="bg-gray-200 p-4 rounded-md shadow-md">
-        <Input
-          label="Document"
-          type="text"
-          name="document"
-          register={register}
-          errors={errors?.document?.message}
-          placeholder="Enter your email"
-        />
+        {paymentForm.map((input) => (
+          <Input
+            label={input.label}
+            type={input.type}
+            name={input.name}
+            register={register}
+            errors={errors?.[input.name]?.message}
+            placeholder={input.placeholder}
+          />
+        ))}
 
         <button
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
