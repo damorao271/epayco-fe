@@ -9,10 +9,11 @@ This is the repository for the Epayco test Frontend project, to run the repo:
 npm install
 ```
 
-3. Start the development server using
+3. clone the file `.env-example` and rename it to `.env` using the provided vairables values
+4. Start the development server using
 
 ```
 npm run dev
 ```
 
-4. Open your web browser and navigate to http://localhost:5173 to view the application.
+5. Open your web browser and navigate to http://localhost:5173 to view the application.
