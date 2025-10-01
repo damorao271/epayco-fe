@@ -1,46 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import epaycoLogo from '/logo-blanco.svg'
 import './App.css'
+import { Input } from './components/input'
+import { useForm } from 'react-hook-form'
+import { paySchema } from './schemas/pay.schema'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Read from environment variables
 
-  const apiUrl = import.meta.env.VITE_API_URL
-  const key = import.meta.env.VITE_KEY
+  // const apiUrl = import.meta.env.VITE_API_URL
+  // const key = import.meta.env.VITE_KEY
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(paySchema()),
+  })
+
+  const applyDiscount = handleSubmit(async (data) => {})
 
   return (
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={epaycoLogo} className="logo" alt="Vite logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <p></p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more {apiUrl} {key}
-      </p>
 
       <div className="bg-gray-200 p-4 rounded-md shadow-md">
-        <h2 className="text-xl font-semibold text-gray-800">
-          Tailwind Example
-        </h2>
-        <p className="text-gray-700">
-          This is a simple example using Tailwind CSS classes.
-        </p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Click me
+        <Input
+          label="Document"
+          type="text"
+          name="document"
+          register={register}
+          errors={errors?.document?.message}
+          placeholder="Enter your email"
+        />
+
+        <button
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          onClick={applyDiscount}
+        >
+          Submit
         </button>
       </div>
     </>
